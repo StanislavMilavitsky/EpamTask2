@@ -13,19 +13,13 @@ public class Runner {
         basket.addInBasket(new Ball(Color.Red, 7));
         basket.addInBasket(new Ball(Color.White));
         basket.addInBasket(new Ball(Color.Red, 9));
-        System.out.println(basket.getAllBall());
-        System.out.println(basket.sizeAllOfBasket());
-        System.out.println(basket.getColorOfBall(2));
-        System.out.println(basket.isBasketEmpty());
-        System.out.println(basket.getWeightOfBall(2));
-        System.out.println(basket.getBall(2));
         basket.removeFromBasketByWeight(5);// по всем цветам, со всеми такими массами
         basket.removeFromBasketByIndex(2);
         basket.removeFromBasketByColor(Color.Red);
         System.out.println(basket.getAllBall());
-        System.out.println(basket.getWeightOfAllBalls());
+        System.out.println(basket.receiveWeightOfAllBalls());
         basket.addInBasket(new Ball(Color.Red));
-        System.out.println(basket.getNumberBallsColor(Color.Red));
+        System.out.println(basket.receiveNumberBallsColor(Color.Red));
 
     }
 }

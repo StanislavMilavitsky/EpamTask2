@@ -1,4 +1,4 @@
-package by.milavitsky.homework.task1.view;
+package by.milavitsky.homework.task2.view;
 
 import javax.swing.*;
 

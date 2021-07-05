@@ -7,10 +7,18 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Basket implements Serializable {
-    private final ArrayList<Ball> arrayBasket = new ArrayList<Ball>(); // если будем помещать только мячи
+    private final ArrayList<Ball> arrayBasket = new ArrayList<Ball>();
     private Ball ball;
 
     public Basket() {
+
+    }
+
+
+    public void addInBasket(int weight) {
+        ball = new Ball();
+        arrayBasket.add(ball);
+        ball.setWeight(weight);
 
     }
 
@@ -18,58 +26,17 @@ public class Basket implements Serializable {
         arrayBasket.add(ball);
     }
 
-    public void removeFromBasketByIndex(int index) {
-        arrayBasket.remove(index);
+    public void addInBasket(Color color) {
+        ball = new Ball();
+        arrayBasket.add(ball);
+        ball.setColor(color);
     }
 
-    public void removeFromBasketByColor(Color color) {
-        for (int i = 0; i < arrayBasket.size(); i++) {
-            ball = arrayBasket.get(i);
-            if (color == ball.getColor()) {
-                arrayBasket.remove(i);
-
-            }
-        }
-    }
-
-    public void removeFromBasketByWeight(double weight) throws IncorrectValueException {
-        for (int i = 0; i < arrayBasket.size(); i++) {
-            ball = arrayBasket.get(i);
-            if (weight == ball.getWeight()) {
-                arrayBasket.remove(i);
-            }
-        }
-    }
-
-    public double getWeightOfAllBalls() {
-        double weight = 0;
-        for (Ball ball : arrayBasket) {
-            weight = weight + ball.getWeight();
-        }
-        return weight;
-    }
-
-    public int getNumberBallsColor(Color color) { // как назвать не знаю
-        int flag = 0;
-        for (Ball ball : arrayBasket) {
-            if (color == ball.getColor()) {
-                flag++;
-            }
-        }
-        return flag;
-    }
-
-    public void removeAllFromBasket() {
-        arrayBasket.removeAll(arrayBasket);
-    }
-
-
-    public boolean isBasketEmpty() {
-        return arrayBasket.isEmpty();
-    }
-
-    public int sizeAllOfBasket() {
-        return arrayBasket.size();
+    public void addInBasket(int weight, Color color) {
+        ball = new Ball();
+        arrayBasket.add(ball);
+        ball.setWeight(weight);
+        ball.setColor(color);
     }
 
     public double getWeightOfBall(int index) throws IncorrectValueException {
@@ -102,6 +69,62 @@ public class Basket implements Serializable {
 
     public ArrayList<Ball> getAllBall() {
         return new ArrayList<Ball>(arrayBasket);
+    }
+
+
+    public void removeFromBasketByIndex(int index) {
+        arrayBasket.remove(index);
+    }
+
+    public void removeFromBasketByColor(Color color) {
+        for (int i = 0; i < arrayBasket.size(); i++) {
+            ball = arrayBasket.get(i);
+            if (color == ball.getColor()) {
+                arrayBasket.remove(i);
+
+            }
+        }
+    }
+
+
+    public void removeFromBasketByWeight(double weight) {
+        for (int i = 0; i < arrayBasket.size(); i++) {
+            ball = arrayBasket.get(i);
+            if (weight == ball.getWeight()) {
+                arrayBasket.remove(i);
+            }
+        }
+    }
+
+    public double receiveWeightOfAllBalls() {
+        double weight = 0;
+        for (Ball ball : arrayBasket) {
+            weight = weight + ball.getWeight();
+        }
+        return weight;
+    }
+
+    public int receiveCountOfBalls() {
+        return arrayBasket.size();
+    }
+
+    public int receiveNumberBallsColor(Color color) {
+        int flag = 0;
+        for (Ball ball : arrayBasket) {
+            if (color == ball.getColor()) {
+                flag++;
+            }
+        }
+        return flag;
+    }
+
+    public void removeAllFromBasket() {
+        arrayBasket.removeAll(arrayBasket);
+    }
+
+
+    public boolean isBasketEmpty() {
+        return arrayBasket.isEmpty();
     }
 
 

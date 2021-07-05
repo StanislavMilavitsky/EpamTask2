@@ -36,6 +36,13 @@ public class Ball implements Serializable {
         this.weight = weight;
     }
 
+    public void setColor(Color color) {
+        this.color = color;
+    }
+    public void setWeight(double weight){
+        this.weight = weight;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -43,9 +50,6 @@ public class Ball implements Serializable {
         Ball ball = (Ball) o;
         if (weight != ball.weight) {
             return false;
-        }
-        if (color == null) {
-            return (color == ball.color);
         } else {
             return color.equals(ball.color);
         }
@@ -53,7 +57,7 @@ public class Ball implements Serializable {
 
     @Override
     public int hashCode() {
-        return (int) (31 * weight + ((color == null) ? 0 : color.hashCode()));
+        return (int) (31 * weight + color.hashCode());
     }
 
     @Override
